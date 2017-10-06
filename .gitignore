@@ -3,3 +3,4 @@ Temp/
 .vs/
 *.csproj
 *.sln
+*.userprefs
