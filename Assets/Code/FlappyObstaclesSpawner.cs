@@ -90,7 +90,7 @@ public class FlappyObstaclesSpawner : MonoBehaviour {
 		GameObject spawned = GameObject.Instantiate( obstaclePrefab );
         spawned.transform.parent = transform;
 		spawned.transform.position = new Vector3( x, y, 0 );
-		spawnedObstacles.Add( spawned );
+		spawnedObstacles.Enqueue( spawned );
 
         Transform bottomTransform = spawned.transform.FindChild( "Bottom" );
         Transform topTransform = spawned.transform.FindChild( "Top" );
