@@ -9,7 +9,7 @@ public class FlappyPlayer : MonoBehaviour {
     public float jumpForce = 10;
     public float additionalGravityForce = 5;
     public float rotationPercentage = 0.5f;
-	public float assumeDeadBelowY = -20;
+	public float assumeDeadBelowOrAboveY = 20;
 
 	public float waitDurationBeforeRestart = 3f;
 
@@ -77,7 +77,8 @@ public class FlappyPlayer : MonoBehaviour {
 		// Additional effect inspired by Flappy Bird - rotation based on velocity
         transform.forward = Vector3.Lerp( Vector3.right, body.velocity, rotationPercentage );
 
-		if ( transform.position.y < assumeDeadBelowY ) {
+		// Modified to make flying above obstacles impossible.
+		if ( Mathf.Abs(transform.position.y) > Mathf.Abs(assumeDeadBelowOrAboveY) ) {
 			Die();
 		}
     }
