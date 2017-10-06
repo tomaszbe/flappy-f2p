@@ -5,7 +5,8 @@ public class FlappyObstaclesSpawner : MonoBehaviour {
 
 	public GameObject obstaclePrefab;
 
-	List<GameObject> spawnedObstacles = new List<GameObject>();
+	// Queue is more apropriate here as we will always remove only the oldest element.
+	private Queue<GameObject> spawnedObstacles = new Queue<GameObject>();
 
 	void Spawn( float x, float y, float gapHeight ) {
 		GameObject spawned = GameObject.Instantiate( obstaclePrefab );
